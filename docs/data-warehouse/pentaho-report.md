@@ -30,3 +30,5 @@
 如果report中的参数值不唯一，即有多个values，比较参数比较符应该选择**exactly matches**而不是in！这点与利用PRD创建基于JDBC的report是参数比较不同，后者对于多值采用in来比较。虽然对于PRD来说exactly matches和in使用效果相同，但一旦发布到Pentaho BI Server就会出现问题，如果你使用in，那么当你为一个参数选择多个值时就会出现”Report validation failed.”的错误！不知道这算不算是该版本Pentaho BI Server的bug。
 
 对于上述这个问题，我曾在Pentaho forum发帖提问(原帖在这里[Multi-value report based on metadata failed to load on BI server](http://forums.pentaho.com/showthread.php?93280-Multi-value-report-based-on-metadata-failed-to-load-on-BI-server&p=278644#post278644))，但没有得到回答，还是自己花了很长时间才摸索出来，希望对后来者有点帮助。
+
+PS: 此文最早于2012年4月5日发布于[新浪博客](http://blog.sina.com.cn/s/blog_67582af90100x9tu.html)。

@@ -10,3 +10,5 @@ deployment and coding tutorial
 1. [Pentaho CE通过JDBC 连接 MS SQL Server 2005](https://github.com/MacIt/tutorial/blob/master/docs/data-warehouse/pentaho-jdbc.md);
 
 2. [Pentaho教程一：基于Metadata创建report并发布到Pentaho BI Server](https://github.com/MacIt/tutorial/blob/master/docs/data-warehouse/pentaho-report.md);
+
+3. [Pentaho教程二: Pentaho BI Server处理多值参数report及JVM设定](https://github.com/MacIt/tutorial/blob/master/docs/data-warehouse/pentaho-report-jvm.md);
