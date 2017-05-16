@@ -12,3 +12,5 @@ deployment and coding tutorial
 2. [Pentaho教程一：基于Metadata创建report并发布到Pentaho BI Server](https://github.com/MacIt/tutorial/blob/master/docs/data-warehouse/pentaho-report.md);
 
 3. [Pentaho教程二: Pentaho BI Server处理多值参数report及JVM设定](https://github.com/MacIt/tutorial/blob/master/docs/data-warehouse/pentaho-report-jvm.md);
+
+4. [Data Warehouse及Pentaho BI入门书籍及资源](https://github.com/MacIt/tutorial/blob/master/docs/data-warehouse/data-warehouse-book.md);
