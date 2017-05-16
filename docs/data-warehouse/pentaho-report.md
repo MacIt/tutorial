@@ -1,25 +1,25 @@
-#Pentaho教程一：基于Metadata创建report并发布到Pentaho BI Server
+# Pentaho教程一：基于Metadata创建report并发布到Pentaho BI Server#
 
 众所周知，Pentaho BI商业智能解决方案提供了两种reporting工具，即基于Pentaho BI Server的Ad Hoc Query and reporting Tool(WAQR)和更高级的Pentaho Report Designer(PRD)。两者均工作在由Pentaho Data Integration(PDI)创建的数据仓库之上(废话，当然，如果你不使用Pentaho也有其他方案)。区别是，WAQR只能通过JDBC连接、查询数据仓库，而PRD除了普通的JDBC连接方式之外，还有Pentaho特有的metadata连接查询方式(还有OLAP、XML等方式，在此不予讨论)！WAQR方式相对简单明了，登录Pentaho BI Server之后，创建新的数据仓库连接便可创建report了。今天要讨论的是PRD，尤其是其metadata连接。
 
-##利用PRD创建基于Metadata的report
+## 利用PRD创建基于Metadata的report
 
 如题，这种方式创建report的基础是已经创建好的metadata文件，以.prpt结尾。本文假设读者已经创建好了.prpt文件，并导出为.xmI文件，以供创建report使用。
 
 1. 打开PRD，新建report，并保存;
 2. 为空的report中的Page Header、Report Header、Report Footer、Page Footer等添加相应元素。重点在Group Header和Details;
 3. 新建Metadata数据连接。打开Metadata数据源编辑器，添加.xmI文件为数据源，并提供创建.prpt文件时所使用的域名(domain);
-![MetadataSourceEditor](https://github.com/MacIt/tutorial/blob/img/MetadataSourceEditor.png)
+![MetadataSourceEditor](https://github.com/MacIt/tutorial/blob/master/img/MetadataSourceEditor.png)
 
 	新建查询(Query)，打开查询编辑器。加入想要查询的列、排序所用的列和约束条件。这里需要注意的是约束条件，因为通常report会加入一些查询参数。为了设置参数查询，需要首先创建参数，通常是通过JDBC获取数据仓库中数据表的某一列作为参数值，然后在查询编辑器中的条件(Condition)栏设置参数查询。这里注意引用参数的语法:用花括号将参数名包围起来，即{parameter}。然后选择对应的比较操作符，比如对于String有Contains、exactly matches和in等，如图2;
 	
-![QueryEditor](https://github.com/MacIt/tutorial/blob/img/QueryEditor.png)
+![QueryEditor](https://github.com/MacIt/tutorial/blob/master/img/QueryEditor.png)
 
 4. 上一步完成后，会得到一些返回的列名，将这些列名按需拖入report的Details部分，一个report的主体部分就完成了;
 5. 如果需要，可以添加Group区域;
 6. 发布report到Pentaho BI Server，如图3。前提是已经开启Pentaho BI Server;
 
-![PublishReport](https://github.com/MacIt/tutorial/blob/img/PublishReport.png)
+![PublishReport](https://github.com/MacIt/tutorial/blob/master/img/PublishReport.png)
  
 7. 为发布report设置发布密码，可在biserver-ce/pentaho-solutions/system/publisher_config.xml中设置。为该report创建一个目录，**目录名必须与metadata文件域名一致**，比如tth;
 8. 通过Pentaho Metadata Editor(PME)直接将.xmI文件发布到Pentaho BI Server下同一目录，即tth。
